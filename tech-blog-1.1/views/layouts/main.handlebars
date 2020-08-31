@@ -2,24 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Blog 1.1</title>
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="./connections.js">
-    <!-- Jquery CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Plotly.js CDN -->
-    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog 1.1</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <div class="container">
-    {{{ body }}}
-    </div>
-    
-    <script src="./assets/script.js"></script>
+  <div class="wrapper">
+    <header>
+      <h1>
+        <a href="/">Tech Blog 1.1</a>
+      </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    <footer>
+      Thanks for visiting!
+    </footer>
+  </div>
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
